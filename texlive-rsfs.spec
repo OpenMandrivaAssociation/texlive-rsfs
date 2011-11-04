@@ -67,6 +67,7 @@ available via one of the packages calrsfs and mathrsfs.
 %{_texmfdistdir}/tex/plain/rsfs/scrload.tex
 %doc %{_texmfdistdir}/doc/fonts/rsfs/README
 %doc %{_texmfdistdir}/doc/fonts/rsfs/README.type1
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -77,3 +78,5 @@ available via one of the packages calrsfs and mathrsfs.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
