@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 The fonts provide uppercase 'formal' script letters for use as
@@ -29,20 +27,12 @@ are provided as MetaFont source, and as derived Adobe Type 1
 format. LaTeX support, for using these fonts in mathematics, is
 available via one of the packages calrsfs and mathrsfs.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -68,7 +58,6 @@ available via one of the packages calrsfs and mathrsfs.
 %{_texmfdistdir}/tex/plain/rsfs/scrload.tex
 %doc %{_texmfdistdir}/doc/fonts/rsfs/README
 %doc %{_texmfdistdir}/doc/fonts/rsfs/README.type1
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -79,5 +68,3 @@ available via one of the packages calrsfs and mathrsfs.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
