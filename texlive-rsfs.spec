@@ -5,8 +5,8 @@
 # catalog-license other-free
 # catalog-version undef
 Name:		texlive-rsfs
-Version:	20081214
-Release:	10
+Version:	20170414
+Release:	1
 Summary:	Ralph Smith's Formal Script font
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/rsfs
