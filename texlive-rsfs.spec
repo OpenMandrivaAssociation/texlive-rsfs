@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /fonts/rsfs
-# catalog-date 2008-12-14 19:11:27 +0100
-# catalog-license other-free
-# catalog-version undef
 Name:		texlive-rsfs
-Version:	20190228
+Version:	15878
 Release:	1
 Summary:	Ralph Smith's Formal Script font
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/rsfs
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -28,12 +22,12 @@ format. LaTeX support, for using these fonts in mathematics, is
 available via one of the packages calrsfs and mathrsfs.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -61,24 +55,10 @@ available via one of the packages calrsfs and mathrsfs.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20081214-2
-+ Revision: 755729
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20081214-1
-+ Revision: 719467
-- texlive-rsfs
-- texlive-rsfs
-- texlive-rsfs
-- texlive-rsfs
-
