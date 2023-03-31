@@ -1,6 +1,6 @@
 Name:		texlive-rsfs
 Version:	15878
-Release:	1
+Release:	2
 Summary:	Ralph Smith's Formal Script font
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/rsfs
