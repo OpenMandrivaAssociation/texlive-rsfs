@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Ralph Smith's Formal Script font
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/rsfs
+URL:		https://www.ctan.org/tex-archive/fonts/rsfs
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.doc.r%{version}.tar.xz
