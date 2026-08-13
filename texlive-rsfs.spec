@@ -12,7 +12,8 @@ Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.r%{tl_revis
 Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/rsfs.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 The fonts provide uppercase 'formal' script letters for use as symbols
@@ -22,3 +23,10 @@ maths symbol font). The fonts are provided as Metafont source, and as
 derived Adobe Type 1 format. LaTeX support, for using these fonts in
 mathematics, is available via one of the packages calrsfs and mathrsfs.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from rsfs:
+MixedMap rsfs.map
+TL_DROPIN_EOF
